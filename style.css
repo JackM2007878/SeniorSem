@@ -43,6 +43,12 @@
     color: lawngreen;
 }
 
+#videoText{
+    white-space: pre;
+    color: lawngreen;
+    font-size: 1.75vw;
+}
+
 body {
     padding: 0;
     margin: 0;
