@@ -1,0 +1,8 @@
+def setSetpoints(self, throttleSetpoint, xPoint, yPoint, zPoint):
+    self.throttleSetpoint = throttleSetpoint
+
+    self.angleXSetpoint = xPoint
+
+    self.angleYSetpoint = yPoint
+
+    self.angleZSetpoint = zPoint

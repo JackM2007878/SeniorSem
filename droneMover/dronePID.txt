@@ -1,0 +1,5 @@
+def __init__(self, pidVals, setpoint):
+    self.pid = PID(pidVals[0], pidVals[1], pidVals[2], setpoint=setpoint)
+    self.pid.sample_time = 0.001
+    self.setpoint = setpoint
+    self.out = 0

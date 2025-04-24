@@ -1,0 +1,18 @@
+def get_qr_coords(cmtx, dist, points):
+
+    #Selected coordinate points for each corner of QR code.
+    qr_edges = np.array([[0,0,0],
+                        [0,1,0],
+                        [1,1,0],
+                        [1,0,0]], dtype = 'float32').reshape((4,1,3))
+
+    #determine the orientation of QR code coordinate system relative to camera coorindate system.
+    ret, rvec, tvec = cv.solvePnP(qr_edges, points, cmtx, dist)
+
+    unitv_points = np.array([[0,0,0], [1,0,0], [0,1,0], [0,0,1]], dtype = 'float32').reshape((4,1,3))
+    if ret:
+        points, jac = cv.projectPoints(unitv_points, rvec, tvec, cmtx, dist)
+        return points, rvec, tvec
+
+    #return empty arrays if rotation and translation values not found
+    else: return [], [], []

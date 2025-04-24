@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Jack M. - Autonomous Drone</title>
+    <link rel="stylesheet" href="./style.css">
+    <script>
+        function code(isShown) {
+            if (isShown) {
+                document.getElementById("code").style.display = "";
+                document.getElementById("stopAudio").style.display = "";
+                Array.from(document.getElementById("code").children).forEach(element => {
+                    element.style.display = "";
+                });
+            }
+            else {
+                document.getElementById("code").style.display = "none";
+                document.getElementById("stopAudio").style.display = "none";
+                Array.from(document.getElementById("code").children).forEach(element => {
+                    element.style.display = "none";
+                });
+            }
+        }
+        function videos(isShown) {
+            if (isShown) {
+                document.getElementById("videos").style.display = "";
+                Array.from(document.getElementById("videos").children).forEach(element => {
+                    element.style.display = "";
+                });
+            }
+            else {
+                document.getElementById("videos").style.display = "none";
+                Array.from(document.getElementById("videos").children).forEach(element => {
+                    element.style.display = "none";
+                });
+            }
+        }
+        function writing(isShown) {
+            if (isShown) {
+                document.getElementById("writing").style.display = "";
+                Array.from(document.getElementById("writing").children).forEach(element => {
+                    element.style.display = "";
+                });
+            }
+            else {
+                document.getElementById("writing").style.display = "none";
+                Array.from(document.getElementById("writing").children).forEach(element => {
+                    element.style.display = "none";
+                });
+            }
+        }
+        // function context(isShown) {
+        //     if (isShown) {
+        //         document.getElementById("context").style.display = "";
+        //         Array.from(document.getElementById("context").children).forEach(element => {
+        //             element.style.display = "";
+        //         });
+        //     }
+        //     else {
+        //         document.getElementById("context").style.display = "none";
+        //         Array.from(document.getElementById("context").children).forEach(element => {
+        //             element.style.display = "none";
+        //         });
+        //     }
+        // }
+        function showDrone(val) {
+            fetch('./drone'.concat(val, '.txt')).then(respone => respone.text()).then((data) => {
+                document.getElementById("codeText").textContent = data
+            })
+        }
+        function showQR(val) {
+            fetch('./qr'.concat(val, '.txt')).then(respone => respone.text()).then((data) => {
+                document.getElementById("codeText").textContent = data
+            })
+        }
+        function showMethod(val) {
+            fetch(val.concat('.txt')).then(respone => respone.text()).then((data) => {
+                document.getElementById("codeText").textContent = data
+                if (document.getElementById("audioCheck").checked) {
+                    document.getElementById("audio").src = val.concat(".m4a")
+                    document.getElementById("audio").play()
+                }
+            })
+        }
+        function stopAudio() {
+            document.getElementById("audio").pause();
+        }
+        function loadDoc() {
+            code(true);
+            videos(false);
+            writing(false);
+            // context(false);
+        }
+        function resize() {
+            if (window.innerWidth < 720) {
+                document.getElementById("leftBar").style.display = "none";
+                document.getElementById("rightBar").style.display = "none";
+                document.getElementById("top").style.display = "none";
+                document.getElementById("tooSmall").style.display = "";
+            }
+            else {
+                document.getElementById("leftBar").style.display = "";
+                document.getElementById("rightBar").style.display = "";
+                document.getElementById("top").style.display = "";
+                document.getElementById("tooSmall").style.display = "none";
+            }
+        }
+        window.addEventListener("resize", resize);
+    </script>
+</head>
+
+<body onload="loadDoc(); resize();">
+    <span id="tooSmall">Your display is too small. Please make your window bigger or switch to a larger device and
+        refresh the page.</span>
+    <h1 id="top">Jack M's Senior Project Webpage: How do I program an autonomous drone using external motion tracking?
+        <div id="stopAudio">
+            <input type="checkbox" name="Audio" id="audioCheck">
+            <label for="audioCheck">Check to enable audio</label><br>
+            <span id="stopAudioButton" onclick="stopAudio()">Stop Audio</span>
+        </div>
+    </h1>
+    <div id="leftBar">
+        <span class="bigtabs" onclick="code(true); videos(false); writing(false);">Code</span><br>
+        <span class="bigtabs" onclick="code(false); videos(false); writing(true);">Writing</span><br>
+        <span class="bigtabs" onclick="code(false); videos(true); writing(false);">Videos</span><br>
+    </div>
+    <div id="rightBar">
+        <div id="code">
+            <div id="tabs">
+                <span class="tabs" onclick="showMethod('./drone/droneinit')">DroneMover-1: Init</span>
+                <span class="tabs" onclick="showMethod('./drone/dronevel')">DroneMover-2: Vel</span>
+                <span class="tabs" onclick="showMethod('./drone/droneupdatePIDS')">DroneMover-3: UpdatePIDs</span>
+                <span class="tabs" onclick="showMethod('./drone/dronesetsetpoints')">DroneMover-4: UpdateSetpoints</span>
+                <span class="tabs" onclick="showMethod('./droneMover/dronePID')">DronePID-1: Init</span>
+                <span class="tabs" onclick="showMethod('./droneMover/setSetpoint')">DronePID-2: SetSetpoint</span>
+                <span class="tabs" onclick="showMethod('./droneMover/update')">DronePID-3: Update</span>
+                <span class="tabs" onclick="showMethod('./qr/qrgetqrcoords')">QR-1: GetQRCoordinates</span>
+                <span class="tabs" onclick="showMethod('./qr/qrreadcameraparameters')">QR-2: ReadCameraParameters</span>
+                <span class="tabs" onclick="showMethod('./wifi/wifiinit')">WiFi-1: Init</span>
+                <span class="tabs" onclick="showMethod('./wifi/wifisendChannels')">WiFi-2: SendChannels</span>
+                <span class="tabs" onclick="showMethod('./wifi/wifiencodeChannels')">WiFi-3: EncodeChannels</span>
+                <span class="tabs" onclick="showMethod('./wifi/wifirecieveResponse')">WiFi-4: RecieveResponse</span>
+                <span class="tabs" onclick="showMethod('./wifi/wififorceendmessage')">WiFi-5: ForceEndMessage</span>
+                <span class="tabs" onclick="showMethod('./wifi/wificlose')">WiFi-6: Close</span>
+            </div>
+            <span id="codeText">
+                Select a function. You can enable and disable the audio with the checkbox at the top of the screen. 
+            </span>
+            <audio id="audio"></audio>
+        </div>
+        <iframe id="writing"
+            src="https://docs.google.com/document/d/125U-TmGVD1vz8xl9wleaXkM1f2dlKZ03laO5L4JE1Do/edit?tab=t.0"
+            frameborder="0"></iframe>
+        <div id="videos">
+            <video controls height="512vh" src="./Untitled video.mp4" frameborder="0" class="video"></video>
+        </div>
+    </div>
+</body>
+
+</html>

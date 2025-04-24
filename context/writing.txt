@@ -1,0 +1,1 @@
+This webpage has been designed in the same format as the code editor I use. In VSCode the tabs at the top of the page allow me to select open files, here they are representing individual functions in my scripts. The shown functions are only a portion of all of my code. What I have displayed on this webpage is the latest iteration of the application.-

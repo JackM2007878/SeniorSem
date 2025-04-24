@@ -1,0 +1,144 @@
+.tabs {
+    font-size: 1.5vw;
+    border: 0;
+    margin: 0;
+    padding-left: 0.1vw;
+    padding-right: 0.75vw;
+    margin-right: 0.1vw;
+    background-color: rgb(20, 20, 27);
+    /* border: 1px solid grey; */
+    border-top-right-radius: 1vw;
+    border-right: 0px;
+    color: lawngreen;
+}
+
+#rightBar {
+    white-space: nowrap;
+    padding: 0;
+    background-color: rgb(36, 36, 36);
+}
+
+#leftBar {
+    height: 95vh;
+    width: 10vw;
+    color: lawngreen;
+    font-size: 2vw;
+    float: left;
+    border-right: 0.2vw solid grey;
+}
+
+#code {
+    font-size: 1.25vw;
+    width: 87.45vw;
+    white-space: nowrap;
+    overflow: auto;
+}
+
+#code::-webkit-scrollbar {
+    display: none;
+}
+
+#codeText {
+    white-space: pre;
+    color: lawngreen;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: rgb(36, 36, 36);
+}
+
+#tabs {
+    border-bottom: 2px solid grey;
+    font-size: 0;
+    margin: 0;
+    overflow-x: auto;
+    padding: 0;
+}
+
+#tabs::-webkit-scrollbar {
+    background: none;
+    height: 0.25vh;
+}
+
+#tabs::-webkit-scrollbar-thumb {
+    background: rgb(83, 136, 136);
+}
+
+.tabs:hover {
+    background-color: green;
+}
+
+.bigtabs {
+    border: 0;
+    border-top-right-radius: 1vw;
+    border-bottom-right-radius: 1vw;
+    padding-right: 0.5vw;
+
+}
+
+.bigtabs:hover {
+    /* border: solid 0.25vw grey; */
+    border-bottom: 0;
+    border-left: 0;
+    background-color: green;
+}
+
+#top {
+    margin: 0;
+    padding: 0.1vh;
+    padding-bottom: 0;
+    font-size: 2vw;
+    text-align: center;
+    color: lightgrey;
+    background-color: black;
+}
+
+#stopAudioButton{
+    background-color: red;
+}
+
+#stopAudio {
+    font-size: 1vw;
+    border-radius: 0.2vw;
+    color: lightgrey;
+    margin: 0.1vw;
+    text-align: center;
+}
+
+#stopAudioButton:hover {
+    background-color: darkred;
+}
+
+#writing {
+    display: block;
+    width: 87.45vw;
+    height: 85vh;
+}
+
+#tooSmall{
+    color: white;
+}
+
+#context{
+    font-size: 1vw;
+    color: lawngreen;
+    white-space: wrap;
+}
+
+#video{
+    object-fit: contain;
+}
+
+#videos{
+    height: 95vh;
+}
+
+/* #writing{
+    display: none;
+}
+
+#context{
+    display: none;
+} */

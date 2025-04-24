@@ -1,0 +1,10 @@
+def updatePIDs(self, xPos, yPos, zPos, zRot):
+    yVel = self.Vel(yPos, self.lastYPos)
+    xVel = self.Vel(xPos, self.lastXPos)
+    zVel = self.Vel(zPos, self.lastZPos)
+    zRotVel = zRot
+
+    self.xOut = self.angleXPID.update(xPos)
+    self.yOut = self.angleYPID.update(yPos)
+    self.zOut = self.angleZPID.update(zRot)
+    self.throttleOut = self.throttlePID.update(zPos)

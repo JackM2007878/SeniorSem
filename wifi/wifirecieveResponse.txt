@@ -1,0 +1,3 @@
+def recieveResponese(self):
+    recv = self.s.recv(1025)
+    return recv

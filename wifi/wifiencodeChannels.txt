@@ -1,0 +1,6 @@
+def encodeChannels(self, channels):
+    channelsString = ""
+    for val in channels:
+        channelsString+=str(val)+","
+    encodedValues = channelsString.encode()
+    return encodedValues

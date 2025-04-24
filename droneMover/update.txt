@@ -1,0 +1,4 @@
+def update(self, newVal):
+    self.pid.setpoint = self.setpoint
+    self.out = self.pid(newVal)
+    return self.out

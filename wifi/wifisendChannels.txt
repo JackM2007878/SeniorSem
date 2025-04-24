@@ -1,0 +1,5 @@
+def sendChannels(self, channels):
+    self.s.send("start".encode())
+    for channel in channels:
+        self.s.send(channel)
+    self.s.send("end".encode())

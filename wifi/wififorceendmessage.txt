@@ -1,0 +1,2 @@
+def forceEndMessage(self):
+    self.s.send("end".encode())

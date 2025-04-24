@@ -1,0 +1,2 @@
+def Vel(self, curVal, lastVal):
+    return curVal-lastVal

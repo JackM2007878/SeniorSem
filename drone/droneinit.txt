@@ -1,0 +1,23 @@
+def __init__(self, PIDvals, setpoint):
+    # GET values
+    self.throttleSetpoint = setpoint[0]
+    self.lastZPos = 0
+    self.throttlePID = DronePID([PIDvals[0][0], PIDvals[0][1], PIDvals[0][2]], setpoint=0)
+    self.angleXSetpoint = setpoint[1]
+    self.lastYPos = 0
+    self.angleXPID = DronePID([PIDvals[1][0], PIDvals[1][1], PIDvals[1][2]], setpoint=0)
+    self.angleYSetpoint = setpoint[2]
+    self.lastXPos = 0
+    self.angleYPID = DronePID(PIDvals[2], setpoint=0)
+    self.angleZSetpoint = setpoint[3]
+    self.lastZRot = 0
+    self.angleZPID = DronePID([PIDvals[3][0], PIDvals[3][1], PIDvals[3][2]], setpoint=0)
+
+    # APPLY values
+    self.throttlePID.setpoint = self.throttleSetpoint
+
+    self.angleXPID.setpoint = self.angleXSetpoint
+
+    self.angleYPID.setpoint = self.angleYSetpoint
+
+    self.angleZPID.setpoint = self.angleZSetpoint

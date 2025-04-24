@@ -1,0 +1,2 @@
+def setSetpoint(self, newVal):
+    self.setpoint = newVal
