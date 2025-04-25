@@ -86,6 +86,7 @@
             document.getElementById("audio").pause();
         }
         function loadDoc() {
+            showMethod('./explanation')
             code(true);
             videos(false);
             writing(false);
@@ -127,6 +128,7 @@
     <div id="rightBar">
         <div id="code">
             <div id="tabs">
+                <span class="tabs" onclick="showMethod('./explanation')">Webpage Help</span>
                 <span class="tabs" onclick="showMethod('./drone/droneinit')">DroneMover-1: Init</span>
                 <span class="tabs" onclick="showMethod('./drone/dronevel')">DroneMover-2: Vel</span>
                 <span class="tabs" onclick="showMethod('./drone/droneupdatePIDS')">DroneMover-3: UpdatePIDs</span>
@@ -145,7 +147,7 @@
                 <span class="tabs" onclick="showMethod('./wifi/wificlose')">WiFi-6: Close</span>
             </div>
             <span id="codeText">
-                Select a function. You can enable and disable the audio with the checkbox at the top of the screen.
+                
             </span>
             <audio id="audio"></audio>
         </div>
